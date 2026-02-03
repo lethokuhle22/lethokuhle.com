@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        body {
+            background-color: #111;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #eee;
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: rgba(20, 20, 40, 0.85);
+            padding: 25px;
+            border-radius: 10px;
+            color: #eee;
+            box-shadow: 0 0 10px rgba(30,144,255,0.4);
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #00ff7f;
+            text-shadow: 0 0 5px #00ff7f;
+        }
+
+        .about-section {
+            margin-bottom: 25px;
+        }
+
+        .about-section h2, .about-section h3, .about-section h4, .about-section h5, .about-section h6 {
+            color: #1fff6b;
+            text-shadow: 0 0 3px #1fff6b;
+            margin-bottom: 10px;
+        }
+
+        .about-section p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .about-header-container {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .role-typing {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4da6ff;
+            text-shadow: 0 0 10px #4da6ff,
+                         0 0 20px #4da6ff,
+                         0 0 30px #007bff;
+            border-right: 3px solid #4da6ff;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: blinkCursor 0.7s infinite;
+        }
+
+        @keyframes blinkCursor {
+            0% { border-color: #4da6ff; }
+            50% { border-color: transparent; }
+            100% { border-color: #4da6ff; }
+        }
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        <h1 class="page-title">About Me</h1>
+
+        <div class="about-header-container">
+            <h2 class="role-typing"></h2>
+        </div>
+
+        <!-- Profile / Bio -->
+        <section class="about-section">
+            <h3>Facts about Lethokuhle Buthelezi</h3>
+            <p>
+                Hey there! My name is Lethokuhle Buthelezi, a passionate, Excellent and young Computer Scientist eager to
+                solve real world problems, develop software, and explore new technologies. My goal is to build innovative
+                solutions that have a net positive impact on people's lives. I am also looking forward to combine my
+                creativity with my technical skills to create user-friendly applications that look aesthetically appealing.
+            </p>
+        </section>
+
+        <!-- Education & Background -->
+        <section class="about-section">
+            <h4>Education & Background</h4>
+            <p>
+                I have managed to acquire a BSc in Computer Science and IT, which has equipped me with strong programming, problem solving,
+                algorithmic, and software development skills. I have also worked on multiple personal and academic projects,
+                including desktop applications, web and game development.
+                I have learnt to build projects using Visual Studio, C++, C#, SQL, CSS, HTML, JavaScript and hope to expose myself to more problems that will assist me to
+                further enhance my knowledge.
+            </p>
+        </section>
+
+        <!-- Interests & Hobbies -->
+        <section class="about-section">
+            <h5>Interests & Hobbies</h5>
+            <p>
+                Beyond coding, I enjoy gaming, educating myself in the future of Virtual Reality, and exploring emerging technologies in the field of mechatronics and robotics.
+                I also like to read books in the field of astrophysics, looking up the newest technologies, like the types of telescopes (Hubble telescope) used and the objects like stars and exoplanets being discovered utilizing them.
+                Keeping my body fit is also a top priority to me as I believe a healthy body supports a sharp mind thus I regularly engage in physical activities like jogging and going to gym.
+                Though many may not classify it as a hobby but I sometimes practise meditation for a clear and sound mind before I start my day.
+            </p>
+        </section>
+
+        <!-- Personal Vision / Goals -->
+        <section class="about-section">
+            <h6>What I perceive my future to be</h6>
+            <p>
+                I aim to become a software engineer who builds impactful applications that transcend time and contributes to innovative tech solutions that better society.
+                I am also passionate about continuous learning, improving my skills, and contributing to projects that solve real-world problems. I am also a firm believer of hard work
+                which results in great service or/and products being provided.
+            </p>
+        </section>
+    </div>
+
+    <script>
+        const roles = [
+            "Software Engineer",
+            "Backend Developer",
+            "DevOps Engineer",
+            "Full-Stack Developer",
+            "Cloud Engineer"
+        ];
+
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpan = document.querySelector(".role-typing");
+
+        function typeEffect() {
+            const currentRole = roles[roleIndex];
+
+            if (!isDeleting) {
+                typingSpan.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+
+                if (charIndex === currentRole.length) {
+                    setTimeout(() => { isDeleting = true; }, 1000);
+                }
+            } else {
+                typingSpan.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                }
+            }
+
+            const speed = isDeleting ? 60 : 90;
+            setTimeout(typeEffect, speed);
+        }
+
+        typeEffect();
+    </script>
+</body>
+</html>

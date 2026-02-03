@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Page - Lethokuhle Buthelezi</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('stars-bg.jpg') no-repeat center center/cover;
+    color: white;
+}
+
+/* Container */
+.home-container {
+    padding: 30px 50px;
+}
+
+/* HERO */
+.hero-section {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.hero-name {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #4da6ff;
+    text-shadow: 0 0 20px #4da6ff, 0 0 40px #007bff;
+}
+
+/* Typing text */
+.hero-role {
+    font-size: 2rem;
+    color: #99ccff;
+    margin-top: 10px;
+    text-shadow: 0 0 10px #99ccff;
+    border-right: 3px solid #4da6ff;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: blinkCursor 0.7s infinite;
+}
+
+@keyframes blinkCursor {
+    0% { border-color: #4da6ff; }
+    50% { border-color: transparent; }
+    100% { border-color: #4da6ff; }
+}
+
+/* Profile pic */
+.profile-pic-container {
+    width: 180px;
+    height: 180px;
+    margin: 20px auto 10px;
+    border-radius: 50%;
+    padding: 5px;
+    background: rgba(77, 166, 255, 0.3);
+    box-shadow: 0 0 20px #4da6ff;
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Buttons */
+.hero-buttons {
+    margin-top: 25px;
+}
+
+.btn-blue, .btn-outline, .btn-blue-sm {
+    padding: 10px 25px;
+    border-radius: 8px;
+    margin: 5px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-blue {
+    background: #4da6ff;
+    color: white;
+    box-shadow: 0 0 12px #4da6ff;
+}
+
+.btn-blue:hover {
+    background: #1a75ff;
+    box-shadow: 0 0 18px #4da6ff;
+}
+
+.btn-outline {
+    border: 2px solid #4da6ff;
+    color: #4da6ff;
+}
+
+.btn-outline:hover {
+    background: #4da6ff;
+    color: black;
+    box-shadow: 0 0 15px #4da6ff;
+}
+
+.btn-blue-sm {
+    background: #4da6ff;
+    color: white;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    box-shadow: 0 0 10px #4da6ff;
+}
+
+/* INTRO */
+.intro-section {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 1.2rem;
+}
+
+/* HIGHLIGHTS */
+.highlights-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-bottom: 60px;
+}
+
+.highlight-card {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #1a3a5f;
+    box-shadow: 0 0 12px rgba(77, 166, 255, 0.2);
+    transition: 0.3s;
+}
+
+.highlight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 18px #4da6ff;
+}
+
+/* FEATURED PROJECTS */
+.featured-projects {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #4da6ff;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px #4da6ff;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.featured-card {
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #1a3a5f;
+    box-shadow: 0 0 12px rgba(77,166,255,0.2);
+    transition: 0.3s;
+}
+
+.featured-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #4da6ff;
+}
+
+.learn-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #4da6ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.learn-more:hover {
+    text-shadow: 0 0 10px #4da6ff;
+}
+
+/* SKILLS TEASER */
+.skills-teaser {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 1.2rem;
+}
+
+/* CTA */
+.cta-section {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.cta-section h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #b3d9ff;
+}
+</style>
+</head>
+<body>
+<div class="home-container">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1 class="hero-name">Lethokuhle Buthelezi</h1>
+        <h2 class="hero-role role-typing"></h2>
+
+        <div class="profile-pic-container">
+            <img src="Content/IMG_20220307_122236_816.jpg" alt="Profile Picture" class="profile-pic">
+        </div>
+
+        <div class="hero-buttons">
+            <a href="projects.html" class="btn-blue">View Projects</a>
+            <a href="Content/Lethokuhle%20Buthelezi%20Curriculum%20Vitae.pdf" download class="btn-outline">Download CV</a>
+        </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="intro-section">
+        <p>
+            I am a passionate Computer Science student who enjoys building 
+            efficient software systems, solving complex problems, and creating 
+            clean, user-focused applications. I specialize in C++, C#, ASP.NET, SQL, 
+            and interactive application development.
+        </p>
+    </section>
+
+    <!-- Highlights -->
+    <section class="highlights-section">
+        <div class="highlight-card">3+ Completed Projects</div>
+        <div class="highlight-card">Strong Problem Solving</div>
+        <div class="highlight-card">Experienced with C++, C#, SQL</div>
+        <div class="highlight-card">Built Desktop & Web Applications</div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="featured-projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="featured-grid">
+            <div class="featured-card">
+                <h3>Quiz Game (C++)</h3>
+                <p>Interactive quiz game with score tracking and timer functions.</p>
+                <a href="Projects.html" class="learn-more">Learn More →</a>
+            </div>
+            <div class="featured-card">
+                <h3>Dental Appointment System (C#, MySQL)</h3>
+                <p>Booking, editing, and management system with validation.</p>
+                <a href="Projects.html" class="learn-more">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Teaser -->
+    <section class="skills-teaser">
+        <h2 class="section-title">Skills Overview</h2>
+        <p>C++, C#, ASP.NET, SQL, Java, Python, Visual Studio, GitHub, SFML</p>
+        <a href="Skills.html" class="btn-blue-sm">View Full Skills</a>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section class="cta-section">
+        <h2>Let's Build Something Great</h2>
+        <a href="Contact.html" class="btn-blue">Contact Me</a>
+    </section>
+</div>
+
+<script>
+// Typing animation
+const roles = ["Software Engineer", "Backend Developer", "Full-Stack Developer", "DevOps Engineer", "Cloud Engineer"];
+let roleIndex = 0, charIndex = 0, isDeleting = false;
+const typingSpan = document.querySelector(".role-typing");
+
+function typeEffect() {
+    const currentRole = roles[roleIndex];
+    if (!isDeleting) {
+        typingSpan.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === currentRole.length) setTimeout(() => isDeleting = true, 1000);
+    } else {
+        typingSpan.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+        }
+    }
+    const speed = isDeleting ? 60 : 90;
+    setTimeout(typeEffect, speed);
+}
+
+typeEffect();
+</script>
+</body>
+</html>

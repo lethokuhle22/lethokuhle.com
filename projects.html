@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <style>
+        body {
+            background-color: #111;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #eee;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            color: #1e90ff;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 5px #1e90ff;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: rgba(30, 30, 60, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(30,144,255,0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(30,144,255,0.6);
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .project-tech, .project-year {
+            font-size: 0.9rem;
+            color: #bbb;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            color: #eee;
+            line-height: 1.6;
+        }
+
+        .project-video {
+            margin-top: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(30,144,255,0.5);
+        }
+
+        .project-video iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+
+        .project-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-links a {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: #1e90ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .project-links a:hover {
+            background-color: #00bfff;
+            box-shadow: 0 0 10px #00bfff;
+        }
+
+        @media (max-width: 950px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="projects-container">
+        <h1 class="page-title">My Projects</h1>
+
+        <div class="projects-grid">
+
+            <!-- Project 1 -->
+            <div class="project-card">
+                <h2 class="project-title">Quiz Game Application</h2>
+                <p class="project-tech"><strong>Technologies:</strong> C++, Visual Studio 2022</p>
+                <p class="project-year"><strong>Year:</strong> 2025</p>
+                <p class="project-description">
+                    Created a multiple-choice quiz game with score tracking and timer functionality.
+                    Designed interactive UI with randomized questions and answer validation.
+                </p>
+                <div class="project-video">
+                    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID1" title="Quiz Game Demo" allowfullscreen></iframe>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/yourusername/quiz-game" target="_blank">View GitHub</a>
+                    <a href="#" target="_blank">Live Demo</a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <h2 class="project-title">Dental Appointment Booking System [FES version]</h2>
+                <p class="project-tech"><strong>Technologies:</strong> C#, MySQL</p>
+                <p class="project-year"><strong>Year:</strong> 2025</p>
+                <p class="project-description">
+                    Built a system to manage dental appointments and patient records using web forms. Enabled booking, editing, 
+                    and cancellation with validation. Designed user-friendly forms connected to MySQL database.
+                </p>
+                <div class="project-video">
+                    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID2" title="Dental System Demo" allowfullscreen></iframe>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/yourusername/dental-booking-system" target="_blank">View GitHub</a>
+                    <a href="#" target="_blank">Live Demo</a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <h2 class="project-title">Task Manager Application</h2>
+                <p class="project-tech"><strong>Technologies:</strong> C#, MySQL</p>
+                <p class="project-year"><strong>Year:</strong> 2025</p>
+                <p class="project-description">
+                    Developed a desktop application to manage tasks, deadlines, and priorities. Implemented SQL-based task tracking and notifications. 
+                    Focused on usability and clean UI design.
+                </p>
+                <div class="project-video">
+                    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID3" title="Task Manager Demo" allowfullscreen></iframe>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/yourusername/task-manager" target="_blank">View GitHub</a>
+                    <a href="#" target="_blank">Live Demo</a>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card">
+                <h2 class="project-title">Dental Clinic Website [Remote booking version]</h2>
+                <p class="project-tech"><strong>Technologies:</strong> ASP.NET, C#, MySQL</p>
+                <p class="project-year"><strong>Year:</strong> 2025</p>
+                <p class="project-description">
+                    Developed a professional website for the dental clinic with appointment booking, patient management, and responsive design.
+                </p>
+                <div class="project-video">
+                    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID4" title="Dental Clinic Website Demo" allowfullscreen></iframe>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/yourusername/dental-clinic-website" target="_blank">View GitHub</a>
+                    <a href="#" target="_blank">Live Demo</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
