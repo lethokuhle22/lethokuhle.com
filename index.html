@@ -46,38 +46,51 @@
 
         /* Sidebar styling */
         .sidebar {
-            width: 250px;
-            min-height: 100vh;
-            background-color: rgba(20, 20, 40, 0.95);
-            transition: width 0.3s;
-            position: fixed;
-            z-index: 10;
-            box-shadow: 2px 0 8px rgba(0,0,0,0.5);
-        }
-
+    width: 260px;
+    min-height: 100vh;
+    background: rgba(10, 15, 35, 0.75);
+    backdrop-filter: blur(14px);
+    border-right: 1px solid rgba(59,130,246,0.25);
+    transition: width 0.25s ease;
+    position: fixed;
+    z-index: 10;
+    box-shadow: 0 0 25px rgba(59,130,246,0.15);
+}
         .sidebar.collapsed { width: 70px; }
 
         .sidebar .nav-link {
-            color: #ddd;
-            font-weight: 500;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            transition: all 0.3s;
-            position: relative;
-            text-decoration: none;
-        }
+    color: #cbd5f5;
+    font-weight: 500;
+    padding: 12px 16px;
+    margin: 6px 12px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    transition: 0.2s ease;
+}
 
         .sidebar .nav-link:hover {
-            background-color: #1e90ff;
-            color: white !important;
-            text-shadow: 0 0 5px #1e90ff;
-        }
+    background: rgba(59,130,246,0.15);
+    color: #3b82f6 !important;
+    transform: translateX(6px);
+}
 
-        .sidebar .nav-link i { margin-right: 15px; min-width: 20px; text-align: center; }
+.sidebar .nav-link.active {
+    background: #3b82f6;
+    color: white !important;
+}
+
+        .sidebar .nav-link i {
+    margin-right: 12px;
+    font-size: 18px;
+    color: #94a3b8;
+}
         .sidebar.collapsed .nav-link span { display: none; }
 
-        .sidebar a:hover i { transform: translateX(5px) scale(1.2); color: #00ff7f; }
+        .sidebar .nav-link:hover i {
+    color: #3b82f6;
+}
+
         .sidebar a:hover span { transform: translateX(10px); color: #00ff7f; }
 
         /* Content styling */
@@ -93,12 +106,15 @@
         .sidebar.collapsed ~ .content { margin-left: 70px; }
 
         .toggle-btn {
-            color: #ddd;
-            cursor: pointer;
-            padding: 15px;
-            text-align: center;
-            border-bottom: 1px solid #495057;
-        }
+    color: #cbd5f5;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.toggle-btn:hover {
+    background: rgba(59,130,246,0.1);
+}
 
         footer {
             color: #bbb;
@@ -123,6 +139,11 @@
     <div class="stars3"></div>
 
     <div class="sidebar" id="sidebar">
+		<div class="sidebar-profile text-center p-3">
+    <img src="me.jpg" class="profile-pic">
+    <h6 class="mt-2">Lethokuhle</h6>
+    <small class="text-muted">CS Graduate</small>
+</div>
         <div class="toggle-btn" onclick="toggleSidebar()">
             <i class="fas fa-bars"></i>
         </div>
