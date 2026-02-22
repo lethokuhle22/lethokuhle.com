@@ -14,60 +14,68 @@
         }
 
         .resume-container {
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: rgba(20, 20, 40, 0.85);
-    padding: 25px;
-    border-radius: 12px;
-    color: #eee;
-    border: 1px solid #00bfff;
-    box-shadow: 
-        0 0 10px #00bfff,
-        0 0 25px rgba(0, 191, 255, 0.6);
-}
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: rgba(20, 20, 40, 0.85);
+            padding: 25px;
+            border-radius: 12px;
+            color: #eee;
+            border: 1px solid #00bfff;
+            box-shadow: 
+                0 0 10px #00bfff,
+                0 0 25px rgba(0, 191, 255, 0.6);
+        }
 
+        /* Title */
         .page-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             color: white;
-            text-shadow: 0 0 5px #00ff7f;
+            text-shadow: 0 0 5px #00bfff, 0 0 15px #00bfff;
         }
 
-  .download-cv a {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 12px 28px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #00ff99;
-    text-decoration: none;
-    border: 2px solid #00ff99;
-    border-radius: 6px;
-    background: transparent;
-    box-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99;
-    transition: 0.3s ease;
-}
+        /* Download CV button container */
+        .download-cv {
+            text-align: center;
+            margin-bottom: 25px;
+        }
 
-/* Hover effect */
-.download-cv a:hover {
-    background: #00ff99;
-    color: #000;
-    box-shadow: 0 0 20px #00ff99, 0 0 40px #00ff99;
-}
+        /* Download CV button */
+        .download-cv a {
+            display: inline-block;
+            padding: 12px 28px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #00bfff;
+            text-decoration: none;
+            border: 2px solid #00bfff;
+            border-radius: 6px;
+            background: transparent;
+            box-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+            transition: 0.3s ease;
+        }
+
+        .download-cv a:hover {
+            background: #00bfff;
+            color: #000;
+            box-shadow: 0 0 20px #00bfff, 0 0 40px #00bfff;
+        }
 
         .resume-section {
             margin-bottom: 25px;
         }
 
+        /* Section headings */
         .resume-section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #1fff6b;
-    text-shadow: 0 0 3px #1fff6b;
-}
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #00bfff;
+            text-shadow: 0 0 3px #00bfff, 0 0 10px #00bfff;
+        }
 
-        .resume-section p, .resume-section li {
+        .resume-section p,
+        .resume-section li {
             font-size: 1rem;
             line-height: 1.6;
         }
@@ -79,9 +87,11 @@
 </head>
 <body>
     <div class="resume-container">
+
+        <!-- Title -->
         <h1 class="page-title">My Resume</h1>
 
-        <!-- Download CV -->
+        <!-- Download CV under title -->
         <div class="download-cv">
             <a href="Content/Lethokuhle_Buthelezi_Resume.pdf" target="_blank">Download CV</a>
         </div>
@@ -108,18 +118,18 @@
             <ul>
                 <li>C#, C++, ASP.NET, SQL, HTML, CSS, JavaScript</li>
                 <li>Visual Studio, SQL, Git, GitHub</li>
-                <li>Problem-solving, Systems Analysis and Design, Web and Desktop application development,</li>
+                <li>Problem-solving, Systems Analysis and Design, Web and Desktop application development</li>
             </ul>
         </section>
 
-        <!-- Projects / Experience -->
+        <!-- Projects -->
         <section class="resume-section">
             <h2>Projects & Experience</h2>
             <ul>
-                <li><strong>Quiz Game Application (2025)</strong> - C++, Visual Studio 2022: Multiple-choice quiz game with timer and score tracking, includes storyline.</li>
-                <li><strong>Dental Appointment Booking System (2025)</strong> - C#, MySQL: Desktop app for managing appointments and patient records.</li>
-                <li><strong>Financial Dashboard (2026)</strong> - C#, MySQL: Desktop app for managing finances.</li>
-                <li><strong>Dental Clinic Website (2025)</strong> - ASP.NET, MySQL: Responsive website with appointment booking functionality.</li>
+                <li><strong>Quiz Game Application (2025)</strong> - C++, Visual Studio 2022</li>
+                <li><strong>Dental Appointment Booking System (2025)</strong> - C#, MySQL</li>
+                <li><strong>Financial Dashboard (2026)</strong> - C#, MySQL</li>
+                <li><strong>Dental Clinic Website (2025)</strong> - ASP.NET, MySQL</li>
             </ul>
         </section>
 
@@ -134,6 +144,7 @@
             <h2>References</h2>
             <p>Available upon request.</p>
         </section>
+
     </div>
 </body>
 </html>
