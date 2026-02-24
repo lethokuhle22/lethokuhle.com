@@ -10,42 +10,22 @@
 
     <style>
         /* Body */
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            overflow-x: hidden;
-            background: black;
-            color: #eee;
-        }
+       body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    color: #eee;
 
-        /* Star background */
-        .stars, .stars2, .stars3 {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 0;
-        }
+    /* Dark Tech Pattern Background */
+    background-color: #0b0f1a;
+    background-image:
+        radial-gradient(circle at 1px 1px, rgba(59,130,246,0.15) 1px, transparent 0),
+        linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px),
+        linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px);
+    background-size: 40px 40px, 80px 80px, 80px 80px;
+}
 
-        .stars::before, .stars2::before, .stars3::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background-repeat: repeat;
-            background-size: 50px 50px;
-            animation: moveStars linear infinite;
-        }
-
-        .stars::before { background-image: radial-gradient(white 1px, transparent 1px); animation-duration: 100s; }
-        .stars2::before { background-image: radial-gradient(white 1px, transparent 1px); animation-duration: 150s; }
-        .stars3::before { background-image: radial-gradient(white 1px, transparent 1px); animation-duration: 200s; }
-
-        @keyframes moveStars {
-            from { transform: translate(0, 0); }
-            to { transform: translate(-1000px, 1000px); }
-        }
-
-        /* ================= FLOATING SIDEBAR ================= */
+                /* ================= FLOATING SIDEBAR ================= */
         .sidebar {
             width: 240px;
             background: rgba(0, 80, 255, 0.15);
