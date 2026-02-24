@@ -123,6 +123,33 @@
         .sidebar.collapsed ~ .content {
             margin-left: 120px;
         }
+.sidebar.collapsed .nav-link {
+    position: relative;
+}
+
+.sidebar.collapsed .nav-link::after {
+    content: attr(data-title);
+    position: absolute;
+    left: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 100, 255, 0.85);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s ease;
+    box-shadow: 0 0 12px rgba(59,130,246,0.8);
+}
+
+/* Show tooltip on hover */
+.sidebar.collapsed .nav-link:hover::after {
+    opacity: 1;
+    left: 90px;
+}
 
         /* Hero section */
         .hero-section {
@@ -155,14 +182,43 @@
             <i class="fas fa-bars"></i>
         </div>
 
-        <ul class="nav flex-column">
-            <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i><span> Home</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html"><i class="fas fa-user"></i><span> About Me</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="projects.html"><i class="fas fa-code"></i><span> Projects</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="resume.html"><i class="fas fa-file-alt"></i><span> Resume</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i><span> Contact</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="skills.html"><i class="fas fa-lightbulb"></i><span> Skills</span></a></li>
-        </ul>
+       <ul class="nav flex-column">
+    <li class="nav-item">
+        <a class="nav-link" href="index.html" data-title="Home">
+            <i class="fas fa-home"></i><span> Home</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="about.html" data-title="About Me">
+            <i class="fas fa-user"></i><span> About Me</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="projects.html" data-title="Projects">
+            <i class="fas fa-code"></i><span> Projects</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="resume.html" data-title="Resume">
+            <i class="fas fa-file-alt"></i><span> Resume</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="contact.html" data-title="Contact">
+            <i class="fas fa-envelope"></i><span> Contact</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="skills.html" data-title="Skills">
+            <i class="fas fa-lightbulb"></i><span> Skills</span>
+        </a>
+    </li>
+</ul>
     </div>
 
     <!-- MAIN CONTENT -->
