@@ -1,317 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume — Lethokuhle Buthelezi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080c14; --bg2: #0d1322; --sbg: rgba(8,14,28,0.94);
+      --accent: #4af0c4; --a2: #3ab8ff; --a3: #a78bfa;
+      --text: #e8edf5; --muted: #7b8ba1;
+      --bdr: rgba(74,240,196,0.12); --bdr2: rgba(74,240,196,0.28);
+      --cbg: rgba(255,255,255,0.025);
+      --fd: 'Syne', sans-serif; --fb: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { margin:0; font-family:var(--fb); background:var(--bg); color:var(--text); display:flex; min-height:100vh; overflow-x:hidden; }
+    body::before { content:''; position:fixed; inset:0; background-image:linear-gradient(rgba(74,240,196,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(74,240,196,.03) 1px,transparent 1px); background-size:48px 48px; pointer-events:none; z-index:0; }
+    .orb { position:fixed; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; animation:drift 18s ease-in-out infinite alternate; }
+    .orb-1 { width:500px; height:500px; background:rgba(74,240,196,.06); top:-100px; right:8%; }
+    .orb-2 { width:380px; height:380px; background:rgba(58,184,255,.05); bottom:5%; left:15%; animation-delay:-7s; }
+    .orb-3 { width:280px; height:280px; background:rgba(167,139,250,.05); top:45%; right:28%; animation-delay:-3s; }
+    @keyframes drift { from{transform:translate(0,0) scale(1);}to{transform:translate(30px,-20px) scale(1.08);} }
+    /* Sidebar */
+    .sb { position:fixed; left:0; top:0; bottom:0; width:230px; background:var(--sbg); backdrop-filter:blur(24px); border-right:1px solid var(--bdr); display:flex; flex-direction:column; z-index:100; padding:1.75rem 0; transition:transform .3s ease; }
+    .sb-logo { padding:0 1.5rem 1.75rem; border-bottom:1px solid var(--bdr); margin-bottom:1.25rem; }
+    .lm { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:linear-gradient(135deg,var(--accent),var(--a2)); border-radius:9px; font-family:var(--fd); font-weight:800; font-size:15px; color:#080c14; margin-bottom:.65rem; }
+    .ln { font-family:var(--fd); font-weight:700; font-size:13.5px; color:var(--text); display:block; line-height:1.3; }
+    .ls { font-size:11px; color:var(--muted); font-weight:300; display:block; margin-top:2px; }
+    .sb-nav { flex:1; padding:0 .6rem; }
+    .nl { display:flex; align-items:center; gap:11px; padding:.6rem .9rem; border-radius:9px; color:var(--muted); text-decoration:none; font-size:13.5px; font-weight:400; transition:all .2s; margin-bottom:2px; position:relative; }
+    .nl i { font-size:15px; width:18px; text-align:center; flex-shrink:0; }
+    .nl:hover { color:var(--text); background:rgba(74,240,196,.07); }
+    .nl.active { color:var(--accent); background:rgba(74,240,196,.09); }
+    .nl.active::before { content:''; position:absolute; left:0; top:50%; transform:translateY(-50%); width:3px; height:16px; background:var(--accent); border-radius:0 2px 2px 0; }
+    .sb-ft { padding:1rem 1.5rem; border-top:1px solid var(--bdr); }
+    .avail { display:flex; align-items:center; gap:7px; font-size:11.5px; color:var(--muted); }
+    .dot { width:7px; height:7px; background:var(--accent); border-radius:50%; box-shadow:0 0 6px var(--accent); animation:pulse 2.5s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.75);} }
+    .hbg { display:none; position:fixed; top:1rem; left:1rem; z-index:200; background:var(--bg2); border:1px solid var(--bdr); border-radius:8px; padding:8px 10px; cursor:pointer; flex-direction:column; gap:4px; }
+    .hbg span { display:block; width:20px; height:2px; background:var(--text); border-radius:1px; }
+    /* Main */
+    .main { margin-left:230px; flex:1; position:relative; z-index:1; }
+    .pw { padding:4rem 4rem 5rem; }
+    .sl { font-size:11px; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:.6rem; display:flex; align-items:center; gap:7px; }
+    .sl::before { content:'//'; color:var(--muted); }
+    .st { font-family:var(--fd); font-size:clamp(1.8rem,3vw,2.6rem); font-weight:700; letter-spacing:-.02em; color:var(--text); margin-bottom:.75rem; }
+    .sd { color:var(--muted); font-size:15px; max-width:520px; line-height:1.75; margin-bottom:2.5rem; font-weight:300; }
+    footer { padding:1.5rem 4rem; border-top:1px solid var(--bdr); display:flex; justify-content:space-between; align-items:center; font-size:12px; color:var(--muted); flex-wrap:wrap; gap:.5rem; }
+    footer a { color:var(--muted); text-decoration:none; transition:color .2s; }
+    footer a:hover { color:var(--accent); }
+    .btn-p { display:inline-flex; align-items:center; gap:7px; padding:.7rem 1.6rem; background:var(--accent); color:#080c14; font-family:var(--fb); font-size:13.5px; font-weight:500; border-radius:9px; text-decoration:none; transition:all .2s; border:none; cursor:pointer; }
+    .btn-p:hover { background:#6ffcd8; transform:translateY(-2px); box-shadow:0 8px 28px rgba(74,240,196,.28); }
+    .btn-s { display:inline-flex; align-items:center; gap:7px; padding:.7rem 1.6rem; border:1px solid var(--bdr2); color:var(--text); font-family:var(--fb); font-size:13.5px; font-weight:400; border-radius:9px; text-decoration:none; background:rgba(255,255,255,.02); transition:all .2s; }
+    .btn-s:hover { border-color:var(--accent); color:var(--accent); background:rgba(74,240,196,.05); }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);} }
+    @media(max-width:900px){ .sb{transform:translateX(-100%);} .sb.open{transform:translateX(0);} .main{margin-left:0;} .pw{padding:5rem 1.5rem 3rem;} footer{padding:1.25rem 1.5rem;} .hbg{display:flex;} }
 
-    <style>
-            /* Body */
-       body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    overflow-x: hidden;
-    color: #eee;
-
-    /* Dark Tech Pattern Background */
-    background-color: #0b0f1a;
-    background-image:
-        radial-gradient(circle at 1px 1px, rgba(59,130,246,0.15) 1px, transparent 0),
-        linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px),
-        linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px);
-    background-size: 40px 40px, 80px 80px, 80px 80px;
-
-          /* ================= FLOATING SIDEBAR ================= */
-        .sidebar {
-            width: 240px;
-            height: 690px;
-            background: rgba(0, 80, 255, 0.15);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(59,130,246,0.4);
-            border-radius: 20px;
-            position: fixed;
-            top: 80px;
-            left: 20px; /* DETACHED FROM EDGE */
-            z-index: 10;
-            box-shadow: 0 0 30px rgba(59,130,246,0.5);
-            padding-bottom: 10px;
-            transition: width 0.25s ease, left 0.25s ease;
-        }
-
-        .sidebar.collapsed {
-            width: 70px;
-        }
-
-        .sidebar .nav-link {
-            color: #cbd5f5;
-            font-weight: 500;
-            padding: 12px 16px;
-            margin: 6px 10px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            transition: 0.2s ease;
-        }
-
-        .sidebar .nav-link:hover {
-            background: rgba(59,130,246,0.25);
-            color: #3b82f6 !important;
-            transform: translateX(6px);
-        }
-
-        .sidebar .nav-link.active {
-            background: #3b82f6;
-            color: white !important;
-        }
-
-        .sidebar .nav-link i {
-            margin-right: 12px;
-            font-size: 18px;
-            color: #94a3b8;
-        }
-
-        .sidebar.collapsed .nav-link span {
-            display: none;
-        }
-
-        .sidebar .nav-link:hover i {
-            color: #3b82f6;
-        }
-
-        /* Toggle button */
-        .toggle-btn {
-            color: #ddd;
-            cursor: pointer;
-            padding: 12px;
-            text-align: center;
-            border-bottom: 1px solid rgba(59,130,246,0.3);
-        }
-
-                .sidebar.collapsed ~ .content {
-            margin-left: 120px;
-        }
-.sidebar.collapsed .nav-link {
-    position: relative;
-}
-
-.sidebar.collapsed .nav-link::after {
-    content: attr(data-title);
-    position: absolute;
-    left: 80px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 100, 255, 0.85);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 14px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.2s ease;
-    box-shadow: 0 0 12px rgba(59,130,246,0.8);
-}
-
-/* Show tooltip on hover */
-.sidebar.collapsed .nav-link:hover::after {
-    opacity: 1;
-    left: 90px;
-}
-
-        .resume-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: rgba(20, 20, 40, 0.85);
-            padding: 25px;
-            border-radius: 12px;
-            color: #eee;
-            border: 1px solid #00bfff;
-            box-shadow: 
-                0 0 10px #00bfff,
-                0 0 25px rgba(0, 191, 255, 0.6);
-        }
-
-        /* Title */
-        .page-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: white;
-            text-shadow: 0 0 5px #00bfff, 0 0 15px #00bfff;
-        }
-
-        /* Download CV button container */
-        .download-cv {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        /* Download CV button */
-        .download-cv a {
-            display: inline-block;
-            padding: 12px 28px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #00bfff;
-            text-decoration: none;
-            border: 2px solid #00bfff;
-            border-radius: 6px;
-            background: transparent;
-            box-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
-            transition: 0.3s ease;
-        }
-
-        .download-cv a:hover {
-            background: #00bfff;
-            color: #000;
-            box-shadow: 0 0 20px #00bfff, 0 0 40px #00bfff;
-        }
-
-        .resume-section {
-            margin-bottom: 25px;
-        }
-
-        /* Section headings */
-       .resume-section h2 {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #4da6ff;   /* Blue text */
-    text-shadow: none; /* Remove glow */
-    margin-bottom: 10px;
-}
-
-        .resume-section p,
-        .resume-section li {
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-.content {
-            margin-left: 300px; /* space for floating sidebar */
-            padding: 40px;
-            min-height: 100vh;
-            position: relative;
-            z-index: 5;
-            transition: margin-left 0.3s;
-        }
-    </style>
+    .rcont { max-width:780px; }
+    .dl-btn { margin-bottom:2.5rem; }
+    .rsec { margin-bottom:2.5rem; padding-bottom:2.5rem; border-bottom:1px solid var(--bdr); }
+    .rsec:last-child { border-bottom:none; }
+    .rsec h2 { font-family:var(--fd); font-size:1.1rem; font-weight:700; color:var(--accent); margin-bottom:1rem; display:flex; align-items:center; gap:8px; }
+    .rsec h2 i { font-size:14px; }
+    .rsec p, .rsec li { font-size:14.5px; color:var(--muted); line-height:1.7; font-weight:300; margin-bottom:.35rem; }
+    .rsec p strong, .rsec li strong { color:var(--text); font-weight:500; }
+    .rsec ul { padding-left:1.25rem; }
+    .rsec li { margin-bottom:.5rem; }
+    .rdate { font-size:12px; color:var(--a2); margin-left:.5rem; }
+  </style>
 </head>
 <body>
-   <!-- FLOATING SIDEBAR -->
-    <div class="sidebar" id="sidebar">
-        <div class="toggle-btn" onclick="toggleSidebar()">
-            <i class="fas fa-bars"></i>
-        </div>
-
-       <ul class="nav flex-column">
-    <li class="nav-item">
-        <a class="nav-link" href="index.html" data-title="Home">
-            <i class="fas fa-home"></i><span> Home</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="about.html" data-title="About Me">
-            <i class="fas fa-user"></i><span> About Me</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="projects.html" data-title="Projects">
-            <i class="fas fa-code"></i><span> Projects</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="resume.html" data-title="Resume">
-            <i class="fas fa-file-alt"></i><span> Resume</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="contact.html" data-title="Contact">
-            <i class="fas fa-envelope"></i><span> Contact</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="skills.html" data-title="Skills">
-            <i class="fas fa-lightbulb"></i><span> Skills</span>
-        </a>
-    </li>
-</ul>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <button class="hbg" onclick="document.querySelector('.sb').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <aside class="sb" id="sb">
+    <div class="sb-logo">
+      <div class="lm">LB</div>
+      <span class="ln">Lethokuhle Buthelezi</span>
+      <span class="ls">CS &amp; IT Graduate</span>
     </div>
- <div class="content">
-    <div class="resume-container">
-
-        <!-- Title -->
-        <h1 class="page-title">My Resume</h1>
-
-        <!-- Download CV under title -->
-        <div class="download-cv">
-            <a href="Content/Lethokuhle_Buthelezi_Resume.pdf" target="_blank">Download CV</a>
+    <nav class="sb-nav">
+      <a class="nl" href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a class="nl" href="about.html"><i class="fas fa-user"></i> About Me</a>
+      <a class="nl" href="projects.html"><i class="fas fa-code"></i> Projects</a>
+      <a class="nl  active" href="resume.html"><i class="fas fa-file-alt"></i> Resume</a>
+      <a class="nl" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <a class="nl" href="skills.html"><i class="fas fa-lightbulb"></i> Skills</a>
+    </nav>
+    <div class="sb-ft"><div class="avail"><div class="dot"></div> Available for work</div></div>
+  </aside>
+  <main class="main">
+    <div class="pw">
+      <div class="rcont">
+        <div class="sl">My Background</div>
+        <h1 class="st">Resume</h1>
+        <div class="dl-btn">
+          <a href="Content/Lethokuhle_Buthelezi_Resume.pdf" download class="btn-p"><i class="fas fa-download" style="font-size:12px"></i> Download Full CV</a>
         </div>
-
-        <!-- Personal Info -->
-        <section class="resume-section">
-            <h2>Personal Information</h2>
-            <p><strong>Name:</strong> Lethokuhle Buthelezi</p>
-            <p><strong>Email:</strong> bsisanda230@gmail.com</p>
-            <p><strong>Phone:</strong> +27 65 892 1815</p>
-            <p><strong>Location:</strong> South Africa</p>
-        </section>
-
-        <!-- Education -->
-        <section class="resume-section">
-            <h2>Education</h2>
-            <p><strong>Bachelor of Computer Science</strong>, University of KwaZulu Natal (2022 - 2025)</p>
-            <p><strong>High School:</strong> Fundokuhle Secondary School (2018 - 2021)</p>
-        </section>
-
-        <!-- Skills -->
-        <section class="resume-section">
-            <h2>Skills</h2>
-            <ul>
-                <li>C#, C++, ASP.NET, SQL, HTML, CSS, JavaScript</li>
-                <li>Visual Studio, SQL, Git, GitHub</li>
-                <li>Problem-solving, Systems Analysis and Design, Web and Desktop application development</li>
-            </ul>
-        </section>
-
-        <!-- Projects -->
-        <section class="resume-section">
-            <h2>Projects & Experience</h2>
-            <ul>
-                <li><strong>Quiz Game Application (2025)</strong> - C++, Visual Studio 2022</li>
-                <li><strong>Dental Appointment Booking System (2025)</strong> - C#, SQL</li>
-                <li><strong>Financial Dashboard (2026)</strong> - JavaScript,React,Node JS,Tailwind CSS</li>
-                <li><strong>Dental Clinic Website (2025)</strong> - ASP.NET, My</li>
-            </ul>
-        </section>
-
-        <!-- Hobbies -->
-        <section class="resume-section">
-            <h2>Hobbies & Interests</h2>
-            <p>Coding, Gaming, Learning AI & Machine Learning, Web Development</p>
-        </section>
-
-        <!-- References -->
-        <section class="resume-section">
-            <h2>References</h2>
-            <p>Available upon request.</p>
-        </section>
-
+        <div class="rsec">
+          <h2><i class="fas fa-user"></i> Personal Information</h2>
+          <p><strong>Name:</strong> Lethokuhle Buthelezi</p>
+          <p><strong>Email:</strong> bsisanda230@gmail.com</p>
+          <p><strong>Phone:</strong> +27 64 892 1815</p>
+          <p><strong>Location:</strong> Pietermaritzburg, South Africa</p>
+        </div>
+        <div class="rsec">
+          <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+          <p><strong>Bachelor of Computer Science &amp; IT</strong> <span class="rdate">2022 &ndash; 2025</span><br>University of KwaZulu-Natal</p>
+          <p style="margin-top:.75rem"><strong>High School Certificate</strong> <span class="rdate">2018 &ndash; 2021</span><br>Fundokuhle Secondary School</p>
+        </div>
+        <div class="rsec">
+          <h2><i class="fas fa-tools"></i> Technical Skills</h2>
+          <ul>
+            <li><strong>Languages:</strong> C#, C++, Java, Python, JavaScript, SQL, HTML, CSS</li>
+            <li><strong>Frameworks &amp; Tools:</strong> ASP.NET, React, Bootstrap, SFML, OpenCV</li>
+            <li><strong>Dev Tools:</strong> Visual Studio, VS Code, Git, GitHub, MySQL Workbench</li>
+            <li><strong>Concepts:</strong> Problem-solving, Systems Analysis &amp; Design, OOP, REST APIs</li>
+          </ul>
+        </div>
+        <div class="rsec">
+          <h2><i class="fas fa-briefcase"></i> Projects &amp; Experience</h2>
+          <ul>
+            <li><strong>Quiz Game Application</strong> <span class="rdate">2025</span> &mdash; C++, SFML, Visual Studio 2022</li>
+            <li><strong>Dental Appointment Booking System</strong> <span class="rdate">2025</span> &mdash; C#, MySQL</li>
+            <li><strong>Pulse OS Financial Dashboard</strong> <span class="rdate">2026</span> &mdash; React, Node.js, Tailwind CSS</li>
+            <li><strong>Dental Clinic Website</strong> <span class="rdate">2025</span> &mdash; ASP.NET, C#, MySQL</li>
+          </ul>
+        </div>
+        <div class="rsec">
+          <h2><i class="fas fa-heart"></i> Hobbies &amp; Interests</h2>
+          <p>Coding, Gaming, Learning AI &amp; Machine Learning, Astrophysics, Web Development, Fitness &amp; Meditation</p>
+        </div>
+        <div class="rsec">
+          <h2><i class="fas fa-address-book"></i> References</h2>
+          <p>Available upon request.</p>
+        </div>
+      </div>
     </div>
-</div>
-<script>
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('collapsed');
-        }
-    </script>
+    <footer>
+      <span>&copy; 2026 &mdash; Lethokuhle Buthelezi</span>
+      <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top &uarr;</a>
+    </footer>
+  </main>
+  <script>
+    document.querySelectorAll('a').forEach(a=>{
+      a.addEventListener('click',()=>document.querySelector('.sb').classList.remove('open'));
+    });
+  </script>
 </body>
 </html>

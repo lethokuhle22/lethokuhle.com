@@ -1,338 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me — Lethokuhle Buthelezi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080c14; --bg2: #0d1322; --sbg: rgba(8,14,28,0.94);
+      --accent: #4af0c4; --a2: #3ab8ff; --a3: #a78bfa;
+      --text: #e8edf5; --muted: #7b8ba1;
+      --bdr: rgba(74,240,196,0.12); --bdr2: rgba(74,240,196,0.28);
+      --cbg: rgba(255,255,255,0.025);
+      --fd: 'Syne', sans-serif; --fb: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { margin:0; font-family:var(--fb); background:var(--bg); color:var(--text); display:flex; min-height:100vh; overflow-x:hidden; }
+    body::before { content:''; position:fixed; inset:0; background-image:linear-gradient(rgba(74,240,196,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(74,240,196,.03) 1px,transparent 1px); background-size:48px 48px; pointer-events:none; z-index:0; }
+    .orb { position:fixed; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; animation:drift 18s ease-in-out infinite alternate; }
+    .orb-1 { width:500px; height:500px; background:rgba(74,240,196,.06); top:-100px; right:8%; }
+    .orb-2 { width:380px; height:380px; background:rgba(58,184,255,.05); bottom:5%; left:15%; animation-delay:-7s; }
+    .orb-3 { width:280px; height:280px; background:rgba(167,139,250,.05); top:45%; right:28%; animation-delay:-3s; }
+    @keyframes drift { from{transform:translate(0,0) scale(1);}to{transform:translate(30px,-20px) scale(1.08);} }
+    /* Sidebar */
+    .sb { position:fixed; left:0; top:0; bottom:0; width:230px; background:var(--sbg); backdrop-filter:blur(24px); border-right:1px solid var(--bdr); display:flex; flex-direction:column; z-index:100; padding:1.75rem 0; transition:transform .3s ease; }
+    .sb-logo { padding:0 1.5rem 1.75rem; border-bottom:1px solid var(--bdr); margin-bottom:1.25rem; }
+    .lm { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:linear-gradient(135deg,var(--accent),var(--a2)); border-radius:9px; font-family:var(--fd); font-weight:800; font-size:15px; color:#080c14; margin-bottom:.65rem; }
+    .ln { font-family:var(--fd); font-weight:700; font-size:13.5px; color:var(--text); display:block; line-height:1.3; }
+    .ls { font-size:11px; color:var(--muted); font-weight:300; display:block; margin-top:2px; }
+    .sb-nav { flex:1; padding:0 .6rem; }
+    .nl { display:flex; align-items:center; gap:11px; padding:.6rem .9rem; border-radius:9px; color:var(--muted); text-decoration:none; font-size:13.5px; font-weight:400; transition:all .2s; margin-bottom:2px; position:relative; }
+    .nl i { font-size:15px; width:18px; text-align:center; flex-shrink:0; }
+    .nl:hover { color:var(--text); background:rgba(74,240,196,.07); }
+    .nl.active { color:var(--accent); background:rgba(74,240,196,.09); }
+    .nl.active::before { content:''; position:absolute; left:0; top:50%; transform:translateY(-50%); width:3px; height:16px; background:var(--accent); border-radius:0 2px 2px 0; }
+    .sb-ft { padding:1rem 1.5rem; border-top:1px solid var(--bdr); }
+    .avail { display:flex; align-items:center; gap:7px; font-size:11.5px; color:var(--muted); }
+    .dot { width:7px; height:7px; background:var(--accent); border-radius:50%; box-shadow:0 0 6px var(--accent); animation:pulse 2.5s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.75);} }
+    .hbg { display:none; position:fixed; top:1rem; left:1rem; z-index:200; background:var(--bg2); border:1px solid var(--bdr); border-radius:8px; padding:8px 10px; cursor:pointer; flex-direction:column; gap:4px; }
+    .hbg span { display:block; width:20px; height:2px; background:var(--text); border-radius:1px; }
+    /* Main */
+    .main { margin-left:230px; flex:1; position:relative; z-index:1; }
+    .pw { padding:4rem 4rem 5rem; }
+    .sl { font-size:11px; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:.6rem; display:flex; align-items:center; gap:7px; }
+    .sl::before { content:'//'; color:var(--muted); }
+    .st { font-family:var(--fd); font-size:clamp(1.8rem,3vw,2.6rem); font-weight:700; letter-spacing:-.02em; color:var(--text); margin-bottom:.75rem; }
+    .sd { color:var(--muted); font-size:15px; max-width:520px; line-height:1.75; margin-bottom:2.5rem; font-weight:300; }
+    footer { padding:1.5rem 4rem; border-top:1px solid var(--bdr); display:flex; justify-content:space-between; align-items:center; font-size:12px; color:var(--muted); flex-wrap:wrap; gap:.5rem; }
+    footer a { color:var(--muted); text-decoration:none; transition:color .2s; }
+    footer a:hover { color:var(--accent); }
+    .btn-p { display:inline-flex; align-items:center; gap:7px; padding:.7rem 1.6rem; background:var(--accent); color:#080c14; font-family:var(--fb); font-size:13.5px; font-weight:500; border-radius:9px; text-decoration:none; transition:all .2s; border:none; cursor:pointer; }
+    .btn-p:hover { background:#6ffcd8; transform:translateY(-2px); box-shadow:0 8px 28px rgba(74,240,196,.28); }
+    .btn-s { display:inline-flex; align-items:center; gap:7px; padding:.7rem 1.6rem; border:1px solid var(--bdr2); color:var(--text); font-family:var(--fb); font-size:13.5px; font-weight:400; border-radius:9px; text-decoration:none; background:rgba(255,255,255,.02); transition:all .2s; }
+    .btn-s:hover { border-color:var(--accent); color:var(--accent); background:rgba(74,240,196,.05); }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);} }
+    @media(max-width:900px){ .sb{transform:translateX(-100%);} .sb.open{transform:translateX(0);} .main{margin-left:0;} .pw{padding:5rem 1.5rem 3rem;} footer{padding:1.25rem 1.5rem;} .hbg{display:flex;} }
 
-    <style>
-             /* Body */
-       body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    overflow-x: hidden;
-    color: #eee;
-
-    /* Dark Tech Pattern Background */
-    background-color: #0b0f1a;
-    background-image:
-        radial-gradient(circle at 1px 1px, rgba(59,130,246,0.15) 1px, transparent 0),
-        linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px),
-        linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px);
-    background-size: 40px 40px, 80px 80px, 80px 80px;
-
-           /* ================= FLOATING SIDEBAR ================= */
-        .sidebar {
-            width: 240px;
-            height: 690px;
-            background: rgba(0, 80, 255, 0.15);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(59,130,246,0.4);
-            border-radius: 20px;
-            position: fixed;
-            top: 80px;
-            left: 20px; /* DETACHED FROM EDGE */
-            z-index: 10;
-            box-shadow: 0 0 30px rgba(59,130,246,0.5);
-            padding-bottom: 10px;
-            transition: width 0.25s ease, left 0.25s ease;
-        }
-
-        .sidebar.collapsed {
-            width: 70px;
-        }
-
-        .sidebar .nav-link {
-            color: #cbd5f5;
-            font-weight: 500;
-            padding: 12px 16px;
-            margin: 6px 10px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            transition: 0.2s ease;
-        }
-
-        .sidebar .nav-link:hover {
-            background: rgba(59,130,246,0.25);
-            color: #3b82f6 !important;
-            transform: translateX(6px);
-        }
-
-        .sidebar .nav-link.active {
-            background: #3b82f6;
-            color: white !important;
-        }
-
-        .sidebar .nav-link i {
-            margin-right: 12px;
-            font-size: 18px;
-            color: #94a3b8;
-        }
-
-        .sidebar.collapsed .nav-link span {
-            display: none;
-        }
-
-        .sidebar .nav-link:hover i {
-            color: #3b82f6;
-        }
-
-        /* Toggle button */
-        .toggle-btn {
-            color: #ddd;
-            cursor: pointer;
-            padding: 12px;
-            text-align: center;
-            border-bottom: 1px solid rgba(59,130,246,0.3);
-        }
-
-                .sidebar.collapsed ~ .content {
-            margin-left: 120px;
-        }
-.sidebar.collapsed .nav-link {
-    position: relative;
-}
-
-.sidebar.collapsed .nav-link::after {
-    content: attr(data-title);
-    position: absolute;
-    left: 80px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 100, 255, 0.85);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 14px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.2s ease;
-    box-shadow: 0 0 12px rgba(59,130,246,0.8);
-}
-
-/* Show tooltip on hover */
-.sidebar.collapsed .nav-link:hover::after {
-    opacity: 1;
-    left: 90px;
-}
-
-        .about-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: rgba(20, 20, 40, 0.85);
-            padding: 25px;
-            border-radius: 10px;
-            color: #eee;
-            box-shadow: 0 0 10px rgba(30,144,255,0.4);
-        }
-
-        .page-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #4da6ff;   /* Blue text */
-
-        }
-
-        .about-section {
-            margin-bottom: 25px;
-        }
-
-        .about-section h2, .about-section h3, .about-section h4, .about-section h5, .about-section h6 {
-             color: #4da6ff;   /* Blue text */
-    text-shadow: none;
-            margin-bottom: 10px;
-        }
-
-        .about-section p {
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .about-header-container {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .role-typing {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #4da6ff;
-            text-shadow: 0 0 10px #4da6ff,
-                         0 0 20px #4da6ff,
-                         0 0 30px #007bff;
-            border-right: 3px solid #4da6ff;
-            white-space: nowrap;
-            overflow: hidden;
-            display: inline-block;
-            animation: blinkCursor 0.7s infinite;
-        }
-
-        @keyframes blinkCursor {
-            0% { border-color: #4da6ff; }
-            50% { border-color: transparent; }
-            100% { border-color: #4da6ff; }
-        }
-.content {
-            margin-left: 300px; /* space for floating sidebar */
-            padding: 40px;
-            min-height: 100vh;
-            position: relative;
-            z-index: 5;
-            transition: margin-left 0.3s;
-        }
-    </style>
+    .typing-wrap { margin-bottom:2rem; }
+    .role-typing { font-family:var(--fd); font-size:1.6rem; font-weight:700; color:var(--accent); border-right:3px solid var(--accent); white-space:nowrap; overflow:hidden; display:inline-block; animation:blinkCursor .7s infinite; }
+    @keyframes blinkCursor { 0%,100%{border-color:var(--accent);}50%{border-color:transparent;} }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; margin-top:2rem; }
+    .about-text p { color:var(--muted); font-size:15px; line-height:1.8; margin-bottom:1.25rem; font-weight:300; }
+    .about-text p strong { color:var(--text); font-weight:400; }
+    .info-cards { display:flex; flex-direction:column; gap:.85rem; }
+    .ic { background:var(--cbg); border:1px solid var(--bdr); border-radius:11px; padding:1.1rem 1.3rem; transition:all .3s; }
+    .ic:hover { border-color:var(--bdr2); background:rgba(74,240,196,.04); transform:translateX(5px); }
+    .ic-lbl { font-size:11px; text-transform:uppercase; letter-spacing:.15em; color:var(--muted); margin-bottom:5px; }
+    .ic-val { font-family:var(--fd); font-size:14.5px; font-weight:600; color:var(--text); }
+    .ic-val.green { color:var(--accent); }
+    @media(max-width:900px){ .about-grid{grid-template-columns:1fr;} }
+  </style>
 </head>
 <body>
-<!-- FLOATING SIDEBAR -->
-    <div class="sidebar" id="sidebar">
-        <div class="toggle-btn" onclick="toggleSidebar()">
-            <i class="fas fa-bars"></i>
-        </div>
-
-       <ul class="nav flex-column">
-    <li class="nav-item">
-        <a class="nav-link" href="index.html" data-title="Home">
-            <i class="fas fa-home"></i><span> Home</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="about.html" data-title="About Me">
-            <i class="fas fa-user"></i><span> About Me</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="projects.html" data-title="Projects">
-            <i class="fas fa-code"></i><span> Projects</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="resume.html" data-title="Resume">
-            <i class="fas fa-file-alt"></i><span> Resume</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="contact.html" data-title="Contact">
-            <i class="fas fa-envelope"></i><span> Contact</span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="skills.html" data-title="Skills">
-            <i class="fas fa-lightbulb"></i><span> Skills</span>
-        </a>
-    </li>
-</ul>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <button class="hbg" onclick="document.querySelector('.sb').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <aside class="sb" id="sb">
+    <div class="sb-logo">
+      <div class="lm">LB</div>
+      <span class="ln">Lethokuhle Buthelezi</span>
+      <span class="ls">CS &amp; IT Graduate</span>
     </div>
-
-<div class="content">
-    <div class="about-container">
-        <h1 class="page-title">About Me</h1>
-
-        <div class="about-header-container">
-            <h2 class="role-typing"></h2>
+    <nav class="sb-nav">
+      <a class="nl" href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a class="nl  active" href="about.html"><i class="fas fa-user"></i> About Me</a>
+      <a class="nl" href="projects.html"><i class="fas fa-code"></i> Projects</a>
+      <a class="nl" href="resume.html"><i class="fas fa-file-alt"></i> Resume</a>
+      <a class="nl" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <a class="nl" href="skills.html"><i class="fas fa-lightbulb"></i> Skills</a>
+    </nav>
+    <div class="sb-ft"><div class="avail"><div class="dot"></div> Available for work</div></div>
+  </aside>
+  <main class="main">
+    <div class="pw">
+      <div class="sl">Who I Am</div>
+      <h1 class="st">About Me</h1>
+      <div class="typing-wrap"><span class="role-typing"></span></div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p><strong>Hey there!</strong> My name is Lethokuhle Buthelezi &mdash; a passionate Computer Scientist eager to solve real-world problems, develop software, and explore new technologies.</p>
+          <p>My goal is to build innovative solutions that have a net positive impact on people's lives, combining creativity with technical skill to create user-friendly, aesthetically pleasing applications.</p>
+          <p>I have acquired a <strong>BSc in Computer Science and IT</strong>, which has equipped me with strong programming, problem-solving, and software development skills across desktop, web, and game development.</p>
+          <p>Beyond coding, I enjoy gaming, VR, astrophysics, and keeping fit &mdash; I believe a healthy body supports a sharp mind.</p>
+          <p>My ambition is to become a software engineer who builds impactful applications that transcend time and contribute to innovative tech solutions that better society.</p>
         </div>
-
-        <!-- Profile / Bio -->
-        <section class="about-section">
-            <h3>Facts about Lethokuhle Buthelezi</h3>
-            <p>
-                Hey there! My name is Lethokuhle Buthelezi, a passionate, Excellent and young Computer Scientist eager to
-                solve real world problems, develop software, and explore new technologies. My goal is to build innovative
-                solutions that have a net positive impact on people's lives. I am also looking forward to combine my
-                creativity with my technical skills to create user-friendly applications that look aesthetically appealing.
-            </p>
-        </section>
-
-        <!-- Education & Background -->
-        <section class="about-section">
-            <h4>Education & Background</h4>
-            <p>
-                I have managed to acquire a BSc in Computer Science and IT, which has equipped me with strong programming, problem solving,
-                algorithmic, and software development skills. I have also worked on multiple personal and academic projects,
-                including desktop applications, web and game development.
-                I have learnt to build projects using Visual Studio, C++, C#, SQL, CSS, HTML, JavaScript and hope to expose myself to more problems that will assist me to
-                further enhance my knowledge.
-            </p>
-        </section>
-
-        <!-- Interests & Hobbies -->
-        <section class="about-section">
-            <h5>Interests & Hobbies</h5>
-            <p>
-                Beyond coding, I enjoy gaming, educating myself in the future of Virtual Reality, and exploring emerging technologies in the field of mechatronics and robotics.
-                I also like to read books in the field of astrophysics, looking up the newest technologies, like the types of telescopes (Hubble telescope) used and the objects like stars and exoplanets being discovered utilizing them.
-                Keeping my body fit is also a top priority to me as I believe a healthy body supports a sharp mind thus I regularly engage in physical activities like jogging and going to gym.
-                Though many may not classify it as a hobby but I sometimes practise meditation for a clear and sound mind before I start my day.
-            </p>
-        </section>
-
-        <!-- Personal Vision / Goals -->
-        <section class="about-section">
-            <h6>What I perceive my future to be</h6>
-            <p>
-                I aim to become a software engineer who builds impactful applications that transcend time and contributes to innovative tech solutions that better society.
-                I am also passionate about continuous learning, improving my skills, and contributing to projects that solve real-world problems. I am also a firm believer of hard work
-                which results in great service or/and products being provided.
-            </p>
-        </section>
+        <div class="info-cards">
+          <div class="ic"><div class="ic-lbl">Degree</div><div class="ic-val">BSc Computer Science &amp; IT</div></div>
+          <div class="ic"><div class="ic-lbl">Institution</div><div class="ic-val">University of KwaZulu-Natal</div></div>
+          <div class="ic"><div class="ic-lbl">Specialisation</div><div class="ic-val">Full Stack Development</div></div>
+          <div class="ic"><div class="ic-lbl">Also Skilled In</div><div class="ic-val">Systems Analysis &amp; Design</div></div>
+          <div class="ic"><div class="ic-lbl">Interests</div><div class="ic-val">VR, Astrophysics, AI/ML, Gaming</div></div>
+          <div class="ic"><div class="ic-lbl">Status</div><div class="ic-val green">Open to Opportunities</div></div>
+        </div>
+      </div>
     </div>
-</div>
-
     <script>
-        const roles = [
-            "Software Engineer",
-            "Backend Developer",
-            "DevOps Engineer",
-            "Full-Stack Developer",
-            "Cloud Engineer"
-        ];
-
-        let roleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingSpan = document.querySelector(".role-typing");
-
-        function typeEffect() {
-            const currentRole = roles[roleIndex];
-
-            if (!isDeleting) {
-                typingSpan.textContent = currentRole.substring(0, charIndex + 1);
-                charIndex++;
-
-                if (charIndex === currentRole.length) {
-                    setTimeout(() => { isDeleting = true; }, 1000);
-                }
-            } else {
-                typingSpan.textContent = currentRole.substring(0, charIndex - 1);
-                charIndex--;
-
-                if (charIndex === 0) {
-                    isDeleting = false;
-                    roleIndex = (roleIndex + 1) % roles.length;
-                }
-            }
-
-            const speed = isDeleting ? 60 : 90;
-            setTimeout(typeEffect, speed);
-        }
-
-        typeEffect();
+      const roles=["Software Engineer","Backend Developer","DevOps Engineer","Full-Stack Developer","Cloud Engineer"];
+      let ri=0,ci=0,del=false;
+      const el=document.querySelector(".role-typing");
+      function type(){
+        const r=roles[ri];
+        if(!del){el.textContent=r.substring(0,ci+1);ci++;if(ci===r.length)setTimeout(()=>del=true,1000);}
+        else{el.textContent=r.substring(0,ci-1);ci--;if(ci===0){del=false;ri=(ri+1)%roles.length;}}
+        setTimeout(type,del?60:90);
+      }
+      type();
     </script>
-<script>
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('collapsed');
-        }
-    </script>
-
+    <footer>
+      <span>&copy; 2026 &mdash; Lethokuhle Buthelezi</span>
+      <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top &uarr;</a>
+    </footer>
+  </main>
+  <script>
+    document.querySelectorAll('a').forEach(a=>{
+      a.addEventListener('click',()=>document.querySelector('.sb').classList.remove('open'));
+    });
+  </script>
 </body>
 </html>
